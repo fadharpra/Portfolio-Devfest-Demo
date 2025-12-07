@@ -55,7 +55,10 @@ jobs:
         run: |
           gsutil -m rm -r gs://$BUCKET_NAME/** || true
       
-      - name: Upload files to GCS
+      - name: Upload whole app to GCS
         run: |
-          gsutil -m rsync -r -d -c out gs://$BUCKET_NAME/
+          gsutil -m rsync -r -d \
+            -x "node_modules/|.git/|.next/|out/|.husky/|.github/" \
+            . gs://$BUCKET_NAME/app-src/
+
 

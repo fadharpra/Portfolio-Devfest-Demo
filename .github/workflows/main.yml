@@ -59,6 +59,6 @@ jobs:
         run: |
           gsutil -m rsync -r -d \
             -x "node_modules/|.git/|.next/|out/|.husky/|.github/" \
-            . gs://$BUCKET_NAME/app-src/
+            . gs://$BUCKET_NAME/
 
 

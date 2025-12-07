@@ -35,7 +35,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '24'
-          
+
+      - name: Directory check
+        run: pwd; ls -la
+        
       - name: Install dependencies
         run: npm install
 
@@ -44,7 +47,10 @@ jobs:
 
       - name: Sleep to wait for file consistency
         run: sleep 10
-
+        
+      - name: Directory check
+        run: pwd; ls -la
+        
       - name: Clear GCS Bucket
         run: |
           gsutil -m rm -r gs://$BUCKET_NAME/** || true

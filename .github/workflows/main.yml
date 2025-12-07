@@ -49,4 +49,4 @@ jobs:
         run: gsutil -m rm -r gs://${{ env.BUCKET_NAME }}/** || true
 
       - name: Upload files to GCS
-        run: gsutil -m rsync -r -d -c dist/client gs://${{ env.BUCKET_NAME }}/
+        run: gsutil -m rsync -r -d -c gs://${{ env.BUCKET_NAME }}/
